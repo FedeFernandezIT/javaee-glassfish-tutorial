@@ -22,5 +22,8 @@
                 </configuration>
             </plugin>            
         </plugins>
-    </build>                
+    </build>
+    <modules>
+        <module>jsf</module>
+    </modules>
 </project>
