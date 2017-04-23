@@ -8,7 +8,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee.api.version>7.0</javaee.api.version>
-        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>        
+        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>   
+        <maven.war.plugin.version>3.0.0</maven.war.plugin.version>     
     </properties>
     <name>javaeetutorial</name>
     <description>Tutorial de Java EE 7 con GlassFish Server</description>
@@ -19,6 +20,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven.war.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -33,7 +39,10 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>        
+    </build>
+    <modules>
+        <module>web</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
