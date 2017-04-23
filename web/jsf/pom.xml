@@ -9,4 +9,7 @@
     <artifactId>jsf</artifactId>
     <packaging>pom</packaging>
     <description>Tutorial de Java EE 7 con GlassFish Server - Web with JavaServer Face</description>
+  <modules>
+    <module>hello1</module>
+  </modules>
 </project>
