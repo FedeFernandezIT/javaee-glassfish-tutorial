@@ -97,6 +97,7 @@
                         <home>${glassfish.home}</home>
                     </container>
                     <configuration>
+                        <type>existing</type>
                         <home>${glassfish.home}/glassfish/domains</home>
                         <properties>
                             <cargo.glassfish.domain.name>${glassfish.domain.name}</cargo.glassfish.domain.name>
