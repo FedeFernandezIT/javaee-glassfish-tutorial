@@ -9,4 +9,7 @@
     <artifactId>servlet</artifactId>
     <packaging>pom</packaging>
     <description>Tutorial de Java EE 7 con GlassFish Server - Web with Servlet</description>
+  <modules>
+    <module>hello2</module>
+  </modules>
 </project>
