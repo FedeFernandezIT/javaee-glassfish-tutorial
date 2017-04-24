@@ -13,6 +13,7 @@
         <javaee.api.version>7.0</javaee.api.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>   
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>     
+        <maven.license.plugin.version>3.0</maven.license.plugin.version>
         <cargo.plugin.version>1.6.2</cargo.plugin.version>
         <integration.container.id>glassfish4x</integration.container.id>
         <glassfish.home>${glassfish.home.prefix}/glassfish4</glassfish.home>
@@ -101,6 +102,23 @@
                             <cargo.glassfish.domain.name>${glassfish.domain.name}</cargo.glassfish.domain.name>
                         </properties>
                     </configuration>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${maven.license.plugin.version}</version>
+                <configuration>
+                    <header>common/LICENSE-APACHE-2.0.txt</header>
+                    <excludes>
+                        <exclude>common/**</exclude>
+                        <exclude>**/META-INF/**</exclude>
+                        <exclude>**/WEB-INF/**</exclude>
+                        <exclude>**/nbactions.xml</exclude>
+                        <exclude>**/nb-configuration.xml</exclude>
+                        <exclude>**/glassfish-resources.xml</exclude>
+                        <exclude>**/simple-flow-flow.xml</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
