@@ -5,14 +5,47 @@
     <artifactId>javaee-tutorial</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
+    <name>javaeetutorial</name>
+    <description>Tutorial de Java EE 7 con GlassFish Server</description>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee.api.version>7.0</javaee.api.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>   
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>     
+        <cargo.plugin.version>1.6.2</cargo.plugin.version>
+        <integration.container.id>glassfish4x</integration.container.id>
+        <glassfish.home>${glassfish.home.prefix}/glassfish4</glassfish.home>
+        <glassfish.domain.name>domain1</glassfish.domain.name>
     </properties>
-    <name>javaeetutorial</name>
-    <description>Tutorial de Java EE 7 con GlassFish Server</description>
+
+    <profiles>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <glassfish.home.prefix>c:/</glassfish.home.prefix>
+                <glassfish.executables.suffix>.bat</glassfish.executables.suffix>
+            </properties>
+        </profile>
+        <profile>
+            <id>unix</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <glassfish.home.prefix>${user.home}</glassfish.home.prefix>
+                <glassfish.executables.suffix></glassfish.executables.suffix>
+            </properties>
+        </profile>
+    </profiles>
+    
     <build>
         <pluginManagement>
             <plugins>
@@ -26,6 +59,11 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven.war.plugin.version}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>${cargo.plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -36,6 +74,33 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>redeploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <container>
+                        <containerId>${integration.container.id}</containerId>
+                        <type>installed</type>
+                        <home>${glassfish.home}</home>
+                    </container>
+                    <configuration>
+                        <home>${glassfish.home}/glassfish/domains</home>
+                        <properties>
+                            <cargo.glassfish.domain.name>${glassfish.domain.name}</cargo.glassfish.domain.name>
+                        </properties>
+                    </configuration>
                 </configuration>
             </plugin>
         </plugins>
