@@ -12,5 +12,6 @@
   <modules>
     <module>hello1</module>
     <module>guessnumber-jsf</module>
+    <module>hello1-rlc</module>
   </modules>
 </project>
