@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>        
+    </h:head>
+    <h:body>
+        <h:outputStylesheet name="css/stylesheet.css" target="head"/>
+
+        <h:form prependId="false">
+            <h2>Reservación de Entradas</h2>
+            <p>Bienvenidos al formulario de reservación de entradas for <i>Hit Broadway Musical</i>!</p>
+            <p>
+                <label>Nombre completo (Apellido y nombre):</label>
+                <br/>
+                <input type="text" jsf:id="full_name" name="full_name"
+                       placeholder="Apellido y nombre" value="#{reservationBean.name}"
+                       required="required" title="Ingrese su nombre."/>
+            </p>
+            <p>
+                <label>Email:</label>
+                <br/>
+                <input type="email" jsf:id="email" name="email"
+                       value="#{reservationBean.email}" required="required"
+                       title="Ingrese su email."/>
+            </p>
+            <p>
+                <label>Confirmar Email:</label>
+                <br/>
+                <input type="email" jsf:id="emailAgain" name="emailAgain"
+                       value="#{reservationBean.emailAgain}" required="required"
+                       title="Ingrese su email nuevamente." oninput="check(this)"/>
+            </p>
+            <p>
+                <label>Fecha de la Función:</label>
+                <br/>
+                <input type="date" jsf:id="date" name="date"
+                       value="#{reservationBean.date}" required="required"
+                       title="Ingrese o seleccione una fecha."/>
+            </p>
+            <p>
+                <label>Cantidad de Entradas:</label>
+                <br/>
+                <h:inputText id="tickets" value="#{reservationBean.tickets}">
+                    <f:passThroughAttributes value="#{reservationBean.ticketAttrs}"/>
+                    <f:ajax event="change" render="total"
+                            listener="#{reservationBean.CalculateTotal}"/>
+                </h:inputText>
+            </p>
+            <p>
+                <label>Precio de la Entrada:</label><br/>
+                <h:inputText id="price" p:type="number"
+                             value="#{reservationBean.price}"
+                             p:min="80" p:max="120"
+                             p:step="20" p:required="required"
+                             p:title="Ingrese un precio: 80, 100, 120 ó 140.">
+                    <f:ajax event="change" render="total"
+                            listener="#{reservationBean.CalculateTotal}"/>
+                </h:inputText>
+            </p>
+
+            <p>
+                <label>Total Calculado:</label>
+                <br/>
+                <output jsf:id="total" name="total">
+                    #{reservationBean.totalValue}
+                </output>
+            </p>
+
+            <p>
+                <h:commandButton value="Hacer Reservación"
+                                 action="confirmation"/>
+                <input jsf:id="clear" name="clear" value="Restablecer" type="submit">
+                    <f:ajax render="@all" listener="#{reservationBean.Clear}"/>
+                </input>
+            </p>                        
+        </h:form>
+
+        <script>
+            function check(input) {
+                if (input.value !== document.getElementById('email').value) {
+                    input.setCustomValidity('Las direcciones de email deben ser iguales.');
+                } else {
+                    // input is valid -- reset the error message
+                    input.setCustomValidity('');
+                }
+            }
+        </script>
+    </h:body>
+</html>
+

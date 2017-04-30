@@ -9,9 +9,11 @@
     <artifactId>jsf</artifactId>
     <packaging>pom</packaging>
     <description>Tutorial de Java EE 7 con GlassFish Server - Web with JavaServer Face</description>
-  <modules>
-    <module>hello1</module>
-    <module>guessnumber-jsf</module>
-    <module>hello1-rlc</module>
+    <modules>
+        <module>hello1</module>
+        <module>guessnumber-jsf</module>
+        <module>hello1-rlc</module>
+        <module>reservation</module>
+    <module>bookmarks</module>
   </modules>
 </project>
