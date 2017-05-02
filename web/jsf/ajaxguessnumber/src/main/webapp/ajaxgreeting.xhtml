@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <title>NunaIT - Ajax Adivinando números</title>
+    </h:head>
+    <h:body>
+        <h:form id="AjaxGuess">
+            <h:graphicImage value="#{resource['images:nuna-logo-1.png']}"
+                            alt="NunaIT logo"/>
+            <h2>
+                Hola NunaIT quiere jugar contigo adivinando núemros
+                desde #{nunaNumberBean.minimum} al #{nunaNumberBean.maximum}.
+                ¿Puedes adivinar un número?
+            </h2>
+            <p>
+                <h:inputText id="userNo"
+                             title="Ingresa un número del 0 al 10:"
+                             value="#{userNumberBean.userNumber}">
+                    <f:validateLongRange minimum="#{nunaNumberBean.minimum}"
+                                         maximum="#{nunaNumberBean.maximum}"/>
+
+                </h:inputText>
+                <h:commandButton id="submit" value="Enviar">
+                    <f:ajax execute="userNo" render="outputGroup"/>
+                </h:commandButton>                    
+            </p>
+            <p>
+                <h:panelGroup id="outputGroup" layout="block">
+                    <h:outputText id="result" style="color: blue"
+                                  value="#{userNumberBean.response}"
+                                  rendered="#{!facesContext.validationFailed}"/>
+                    <h:message showSummary="true" showDetail="false"
+                               style="color: #d20005;
+                               font-family: 'New Century Schoolbook', serif;
+                               font-style: oblique;
+                               text-decoration: overline"
+                               id="errors1"
+                               for="userNo"/>
+                </h:panelGroup>
+            </p>
+        </h:form>
+    </h:body>
+</html>
+
