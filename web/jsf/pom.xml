@@ -16,5 +16,6 @@
         <module>reservation</module>
     <module>bookmarks</module>
     <module>ajaxguessnumber</module>
+    <module>compositecomponentexample</module>
   </modules>
 </project>

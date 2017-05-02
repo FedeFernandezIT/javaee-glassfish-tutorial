@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ezcomp">
+    <h:head>
+        <title>NunaIT - Primos</title>
+    </h:head>
+    <h:body>
+        <h2>¿Eres un primo?</h2>
+        <p>
+            Ingresa tú nombre, o una palabra o frase que te guste, y te diremos
+            si la suma de los valores de las letras es un número primo.
+        </p>
+        <h:form>
+            <div id="compositeComponent">
+                <ez:PrimePanel primeBean="#{primeBean}"
+                               calcAction="#{primeBean.calculate}">                    
+                </ez:PrimePanel>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
