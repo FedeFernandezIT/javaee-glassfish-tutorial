@@ -17,5 +17,6 @@
     <module>bookmarks</module>
     <module>ajaxguessnumber</module>
     <module>compositecomponentexample</module>
+    <module>simple-flow</module>
   </modules>
 </project>
