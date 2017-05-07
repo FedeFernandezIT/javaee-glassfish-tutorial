@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="stylesheet.css"/>
+        <title>NunaIT - Página tres de Checkout Flow</title>
+    </h:head>
+    <h:body style="background-color: lightblue">
+        <h:form prependId="false">
+            <h:graphicImage url="#{resource['images:nuna-logo-1.png']}"
+                            alt="NunaIT logo"/>
+            <h2>Checkout Flow: Página Cuatro</h2>
+            <p>Gracias por su pedido,
+                <h:outputText value="#{checkoutFlowBean.name}"/>!</p>
+            <p>Su pedido será facturado a
+                <h:outputText value="#{checkoutFlowBean.ccName}"/>.</p>
+            <p>Para unirse a nuestra lista de correo o club, haga click en
+                Subscribirse. Esta acción invocará a Join Flow.</p>
+            <p>Para volver a la página de inicio o retornar a la primer página
+                del flujo de llamadas, haga click en Inicio.</p>
+            <p><h:commandButton value="Subscribirse" action="calljoin"/></p>
+            <p><h:commandButton value="Inicio" action="returnFromCheckoutFlow"/></p>
+        </h:form>
+    </h:body>
+</html>
+

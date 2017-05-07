@@ -18,5 +18,6 @@
     <module>ajaxguessnumber</module>
     <module>compositecomponentexample</module>
     <module>simple-flow</module>
+    <module>checkout-module</module>
   </modules>
 </project>

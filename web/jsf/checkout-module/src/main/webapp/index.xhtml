@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <h:outputStylesheet library="css" name="stylesheet.css"/>
+        <title>NunaIT - Módulo Checkout: Página Final (Inicio)</title>
+    </h:head>
+    <h:body>
+        <h:form prependId="false">
+            <h:graphicImage url="#{resource['images:nuna-logo-1.png']}"
+                            alt="NunaIT logo"/>
+            <h2>Página de Pedido</h2>
+            <p>Ud. tiene pedido #{checkoutBean.numItems}
+                libros al costo de
+                <h:outputText value="#{checkoutBean.cost}">
+                    <f:convertNumber currencySymbol="$" type="currency"/>
+                </h:outputText>.</p>
+            <p>Click en Verificar para verificar su pedido e ingresar al Flow
+                checkout.</p>
+            <p><h:commandButton value="Verificar" action="checkoutFlow"/></p>
+            <p>Click en Subscribirse para unirse a nuestra lista de correo o
+                club e ingresar al Flow join.</p>
+            <p><h:commandButton value="Unirse" action="joinFlow"/></p>
+            <p>Esta página es el punto de salida (exit point) para las páginas
+                del Flow checkout.</p>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <h:outputStylesheet library="css" name="stylesheet.css"/>
+        <title>NunaIT - Página uno de Checkout Flow</title>
+    </h:head>
+    <h:body style="background-color: lightblue">
+        <h:form prependId="false">
+            <h:graphicImage url="#{resource['images:nuna-logo-1.png']}"
+                            alt="NunaIT logo"/>
+            <h2>Checkout Flow: Página Uno</h2>
+            <p>Gracias por su pedido de #{checkoutBean.numItems} libros con un
+                costo de
+                <h:outputText value="#{checkoutBean.cost}">
+                    <f:convertNumber currencySymbol="$" type="currency"/>
+                </h:outputText>.</p>
+            <p>Por favor proporcione su información de envío. Los datos requeridos
+                están maracodos con un asterísco (*).</p>
+            <h3>Información de Envío</h3>
+            <h:panelGrid columns="3" role="presentation">
+                <h:outputLabel value="Nombre: * " for="name"/>
+                <h:inputText id="name" value="#{checkoutFlowBean.name}"
+                             required="true"/>
+                <h:message for="name" style="color: #d20005"/>
+                
+                <h:outputLabel value="Dirección 1: * " for="addr1"/>
+                <h:inputText id="addr1" value="#{checkoutFlowBean.addressLine1}"
+                             required="true"/>
+                <h:message for="addr1" style="color: #d20005"/>
+                
+                <h:outputLabel value="Dirección 2:" for="addr2"/>
+                <h:inputText id="addr2" value="#{checkoutFlowBean.addressLine2}"/>
+                <h:message for="addr2" style="color: #d20005"/>
+                
+                <h:outputLabel value="Ciudad: * " for="city"/>
+                <h:inputText id="city" value="#{checkoutFlowBean.city}"
+                             required="true"/>
+                <h:message for="city" style="color: #d20005"/>
+                
+                <h:outputLabel value="Provincia:" for="state"/>
+                <h:inputText id="state" value="#{checkoutFlowBean.state}"
+                             maxlength="2"/>
+                <h:message for="state" style="color: #d20005"/>
+                
+                <h:outputLabel value="Código Postal: * " for="zip"/>
+                <h:inputText id="zip" value="#{checkoutFlowBean.postalCode}"
+                             required="true"/>
+                <h:message for="zip" style="color: #d20005"/>
+                
+                <h:outputLabel value="País: * " for="country"/>
+                <h:inputText id="country" value="#{checkoutFlowBean.country}"
+                             required="true"/>
+                <h:message for="country" style="color: #d20005"/>
+            </h:panelGrid>
+            
+            <p>Si ud. llamó a este flow desde Join Flow, puede ver estos
+                parámetros: "<h:outputText value="#{flowScope.param1Value}"/>"
+                y "<h:outputText value="#{flowScope.param2Value}"/>"
+            </p>
+            <p>Haga click en Continuar para ir a la próxima página del flujo.</p>
+            <p></p>
+            <p><h:commandButton value="Continuar" action="checkoutFlow2"/></p>
+        </h:form>
+    </h:body>
+</html>
+
