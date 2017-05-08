@@ -12,5 +12,6 @@
   <modules>
     <module>hello2</module>
     <module>mood</module>
+    <module>fileupload</module>
   </modules>
 </project>
