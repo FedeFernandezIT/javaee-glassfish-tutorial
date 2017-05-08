@@ -13,5 +13,6 @@
     <module>hello2</module>
     <module>mood</module>
     <module>fileupload</module>
+    <module>nunaitetf</module>
   </modules>
 </project>
