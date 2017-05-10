@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NunaIT - WebSocket ETF</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
+        <script>
+            var wsocket;
+            function connect(){
+                wsocket = new WebSocket("ws://localhost:8080/nunaitetf2/nunaitetf");
+                wsocket.onmessage = onMessage;                
+            }
+            function onMessage(evt){
+                var arraypv = evt.data.split("/");
+                document.getElementById("price").innerHTML = arraypv[0];
+                document.getElementById("volume").innerHTML = arraypv[1];
+            }
+            window.addEventListener("load", connect, false);
+        </script>
+    </head>
+    <body>
+        <h1>NunaIT - WebSocket ETF</h1>
+        <table>
+            <tr>
+                <td style="width:100px">Ticker</td>
+                <td style="text-align:center">Precio</td>                
+                <td id="price" style="font-size:24pt;font-weight:bold;">--.--</td>
+            </tr>
+            <tr>
+                <td style="font-size:18pt;font-weight:bold;width:100px">DKEJ</td>
+                <td style="text-align:center">Volumen</td>
+                <td id="volume" align="right">--</td>
+            </tr>
+        </table>
+    </body>
+</html>
