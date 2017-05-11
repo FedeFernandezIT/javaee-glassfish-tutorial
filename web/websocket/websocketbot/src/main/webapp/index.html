@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebsocketBot</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
+        <script type="text/javascript">
+            var wsocket;    // Conexión del Websocket
+            var textarea;   // Area del Chat
+            var wsconsole;  // Area de consola del Websocket
+            var userlist;   // Area de lista de usuarios
+            var userName;   // Nombre del usuario
+            /* Realiza la conexión al endpoint del Websocket
+             * Establece un callback para los mensajes entrantes */
+            function connect() {
+                textarea = document.getElementById("textarea");
+                wsconsole = document.getElementById("wsconsole");
+                userlist = document.getElementById("userlist");
+                wsocket = new WebSocket("ws://localhost:8080/websocketbot/websocketbot");
+                wsocket.onmessage = onmessage;
+                document.getElementById("name").focus();
+                document.getElementById("consolediv").style.visibility = 'hidden';
+            }
+            /* Callback para los mensajes entrantes, evt.data contiene el
+             * mensaje. Actualiza el área del chat, el área de usuarios y
+             * la consola del Websocket */
+            function onmessage(evt) {
+                var line = "";
+                /* Parsea el mensaje a un objeto JavaScript */
+                var msg = JSON.parse(evt.data);
+                if (msg.type === "chat") {
+                    line = msg.name + ": ";
+                    if (msg.target.length > 0)
+                        line += "@" + msg.target + " ";
+                    line += msg.message + "\n";
+                    /* Actualizar área del chat */
+                    textarea.value += "" + line;
+                } else if (msg.type === "info") {
+                    line += "[--" + msg.info + "--]\n";
+                    /* Actualizar área del chat */
+                    textarea.value += "" + line;
+                } else if (msg.type === "users") {
+                    line = "Usuarios:\n";
+                    for (var i = 0; i < msg.userlist.length; i++)
+                        line += "-" + msg.userlist[i] + "\n";                    
+                    /* Actualizar área del chat */
+                    userlist.value = line;
+                }
+                textarea.scrollTop = 999999;
+                /* Actualiza el área de consola del Websocket */
+                wsconsole.value += "->" + evt.data + "\n";
+                wsconsole.scrollTop = 999999;
+            }
+            /* Envía un mensaje join al servidor */
+            function sendJoin() {               
+                var input = document.getElementById("input");
+                var name = document.getElementById("name");
+                var join = document.getElementById("join");
+                var jsonstr;
+                if (name.value.length > 0) {
+                    /* Crea un mensaje como un aobjeto JavaScript */
+                    var joinMsg = {};
+                    joinMsg.type = "join"
+                    joinMsg.name = name.value;
+                    /* Convierte el mensaje a un JSON */
+                    jsonstr = JSON.stringify(joinMsg);
+                    /* Envía el JSON en formato de texto */
+                    wsocket.send(jsonstr);
+                    /* Deshabilita los controles de join */
+                    name.disabled = true;
+                    join.disabled = true;
+                    input.disabled = false;
+                    userName = name.value;
+                    /* Actualiza el área de consola del Websocket */
+                    wsconsole.value += "<-" + jsonstr + "\n";
+                    wsconsole.scrollTop = 999999;
+                }
+            }
+            /* Envía un mensaje chat al servidor (presionando ENTER en el área
+             * del chat) */
+            function sendMessage(evt) {
+                var input = document.getElementById("input");
+                var jsonstr;
+                var msgstr;
+                if (evt.keyCode === 13 && input.value.length > 0) {
+                    /* Crea un mensaje chat como un objeto JavaScript */
+                    var chatMsg = {};
+                    chatMsg.type = "chat";
+                    chatMsg.name = userName;
+                    msgstr = input.value;
+                    chatMsg.target = getTarget(msgstr.replace(/,/g, ""));
+                    chatMsg.message = cleanTarget(msgstr);
+                    chatMsg.message = chatMsg.message.replace(/(\r\n|\n|\r)/gm, "");
+                    /* Convierte el objeto en un JSON */
+                    jsonstr = JSON.stringify(chatMsg);
+                    /* Envía el JSON en formato de texto */
+                    wsocket.send(jsonstr);
+                    input.value = "";
+                    /* Actualiza el área de consola del Websocket */
+                    wsconsole.value += "<-" + jsonstr + "\n";
+                    wsconsole.scrollTop = 999999;
+                }
+            }
+            /* Envía un mensaje join al servidor, si el usuario presiona ENTER
+             * en el input del nombre */
+            function checkJoin(evt) {                
+                var name = document.getElementById("name");
+                var input = document.getElementById("input");
+                if (evt.keyCode === 13 && name.value.length > 0) {
+                    sendJoin();
+                    input.focus();
+                }
+                    
+            }
+            /* Recupera el @User (target) de un mensaje */
+            function getTarget(str) {
+                var arr = str.split(" ");
+                var target = "";
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].charAt(0) === '@') {
+                        target = arr[i].substring(1, arr[i].length);
+                        target = target.replace(/(\r\n|\n|\r)/gm, "");
+                    }
+                }
+                return target;
+            }
+            /* Remueve el @User (target) de un mensaje */
+            function cleanTarget(str) {                
+                var arr = str.split(" ");
+                var cleanstr = "";
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].charAt(0) !== '@') {
+                        cleanstr += arr[i] + " ";                        
+                    }
+                }
+                return cleanstr.substring(0, cleanstr.length-1);
+            }
+            /* Muestra u oculta la consola Websocket */
+            function showHideConsole(){                
+                var chkbox = document.getElementById("showhideconsole");
+                var consolediv = document.getElementById("consolediv");
+                if (chkbox.checked)
+                    consolediv.style.visibility = 'visible';
+                else 
+                    consolediv.style.visibility = 'hidden';
+            }            
+            /* Invocar a connect() cuando se carga la página por primera vez */
+            window.addEventListener("load", connect, false);
+        </script>
+    </head>
+    <body>
+        <h1>WebsocketBot</h1>
+        T&uacute; nombre: <input id="name" type="text"
+                                 size="20" maxlength="20"
+                                 onkeyup="checkJoin(event);">
+        <input id="join" type="submit" value="Unirme!"
+               onclick="sendJoin();"><br>
+        <textarea id="input" cols="70" rows="1" disabled
+                  onkeyup="sendMessage(event);"></textarea><br>
+        <textarea id="textarea" cols="70" rows="20" readonly></textarea>
+        <textarea id="userlist" cols="20" rows="20" readonly></textarea>
+        <br><br><br>
+        <input id="showhideconsole" type="checkbox" onclick="showHideConsole();">
+        Mostrar consola del Websocket<br>
+        <div id="consolediv">
+            <textarea id="wsconsole" cols="80" rows="8" readonly
+                      style="font-size:8pt;"></textarea>
+        </div>
+    </body>
+</html>

@@ -10,5 +10,6 @@
     <packaging>pom</packaging>
   <modules>
     <module>nunaitetf2</module>
+    <module>websocketbot</module>
   </modules>
 </project>
