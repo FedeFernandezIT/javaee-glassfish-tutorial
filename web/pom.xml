@@ -27,5 +27,6 @@
         <module>jsf</module>
         <module>servlet</module>
         <module>websocket</module>
+        <module>jsonp</module>
     </modules>
 </project>
