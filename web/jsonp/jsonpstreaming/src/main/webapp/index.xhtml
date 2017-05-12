@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>NunaIT - JSON Streaming API</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h1>JSON Streaming</h1>
+        <h2>Ingrese su informaci&oacute;n</h2>
+        <h:form>
+            <table>
+                <tr>
+                    <td align="right">Nombre:</td>
+                    <td><h:inputText value="#{streamingBean.firstName}"/></td>
+                </tr><tr>
+                    <td align="right">Apellido:</td>
+                    <td><h:inputText value="#{streamingBean.lastName}"/></td>
+                </tr><tr>
+                    <td align="right">Edad:</td>
+                    <td><h:inputText value="#{streamingBean.age}"/></td>
+                </tr><tr>
+                    <td align="right">Domicilio:</td>
+                    <td><h:inputText value="#{streamingBean.streetAddress}"/></td>
+                </tr><tr>
+                    <td align="right">Ciudad:</td>
+                    <td><h:inputText value="#{streamingBean.city}"/></td>
+                </tr><tr>
+                    <td align="right">Provincia:</td>
+                    <td><h:inputText value="#{streamingBean.state}"/></td>
+                </tr><tr>
+                    <td align="right">C. Postal:</td>
+                    <td><h:inputText value="#{streamingBean.postalCode}"/></td>
+                </tr><tr>
+                    <td align="right">Tel&eacute;fono 1:</td>
+                    <td><h:inputText value="#{streamingBean.phoneNumber1}"/> &nbsp;
+                        <h:selectOneMenu value="#{streamingBean.phoneType1}">
+                            <f:selectItem itemValue="#{streamingBean.phoneTypeHome}"
+                                          itemLabel="#{streamingBean.phoneTypeHome}"/>
+                            <f:selectItem itemValue="#{streamingBean.phoneTypeMobile}"
+                                          itemLabel="#{streamingBean.phoneTypeMobile}"/>
+                        </h:selectOneMenu></td>
+                </tr><tr>
+                    <td align="right">Tel&eacute;fono 2:</td>
+                    <td><h:inputText value="#{streamingBean.phoneNumber2}"/> &nbsp;
+                        <h:selectOneMenu value="#{streamingBean.phoneType2}">
+                            <f:selectItem itemValue="#{streamingBean.phoneTypeHome}"
+                                          itemLabel="#{streamingBean.phoneTypeHome}"/>
+                            <f:selectItem itemValue="#{streamingBean.phoneTypeMobile}"
+                                          itemLabel="#{streamingBean.phoneTypeMobile}"/>
+                        </h:selectOneMenu></td>
+                </tr>
+            </table>
+            <p><h:commandButton value="Escribe un objeto JSON en un archivo"
+                                action="#{streamingBean.writeJson()}"/></p>
+        </h:form>
+    </h:body>
+</html>
+
