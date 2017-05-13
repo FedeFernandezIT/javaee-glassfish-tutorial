@@ -11,6 +11,7 @@
   <modules>
     <module>simplegreeting</module>
     <module>guessnumber-cdi</module>
+    <module>encoder</module>
   </modules>
   <build>
       <finalName>${project.artifactId}</finalName>
