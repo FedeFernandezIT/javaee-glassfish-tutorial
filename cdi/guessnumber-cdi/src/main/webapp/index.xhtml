@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">    
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="title">
+                NunaIT - Adivina el número
+            </ui:define>
+
+            <ui:define name="top">
+                Adivina el número
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="GuessMain">
+                    <div style="color: black; font-size: 24px;">
+                        Estoy pensando un número del
+                        <span style="color: blue">#{userNumberBean.minimum}</span>
+                        al
+                        <span style="color: blue">#{userNumberBean.maximum}</span>.
+                        Tienes
+                        <span style="color: blue">#{userNumberBean.remainingGuesses}</span>
+                        opotunidades.
+                    </div>
+                    <h:panelGrid border="1" columns="5" style="font-size: 18px;">
+                        <h:outputLabel for="inputGuess">Número:</h:outputLabel>
+                        <h:inputText id="inputGuess"
+                                     value="#{userNumberBean.userNumber}"
+                                     required="true" size="3"
+                                     validator="#{userNumberBean.validateNumberRange}"
+                                     disabled="#{userNumberBean.userNumber eq userNumberBean.number
+                                                 or
+                                                 userNumberBean.remainingGuesses le 0}">                            
+                        </h:inputText>
+                        <h:commandButton id="buttonGuess" value="Adivina ya!"
+                                         action="#{userNumberBean.check}"
+                                         disabled="#{userNumberBean.userNumber eq userNumberBean.number
+                                                     or
+                                                     userNumberBean.remainingGuesses le 0}">                            
+                        </h:commandButton>
+                        <h:commandButton id="resetGuess" value="Reiniciar"
+                                         action="#{userNumberBean.reset}"
+                                         immediate="true">
+                        </h:commandButton>
+                        <h:outputText id="higher" value="Más grande!"
+                                      style="color: #d20005"
+                                      rendered="#{userNumberBean.number gt userNumberBean.userNumber
+                                                  and
+                                                  userNumberBean.userNumber ne 0}">
+                        </h:outputText>
+                        <h:outputText id="lower" value="Más chico!"
+                                      style="color: #d20005"
+                                      rendered="#{userNumberBean.number lt userNumberBean.userNumber
+                                                  and
+                                                  userNumberBean.userNumber ne 0}">                            
+                        </h:outputText>
+                    </h:panelGrid>
+                    <div style="color: #d20005; font-size: 14px;">
+                        <h:messages id="messages" globalOnly="false"/>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+    
+</html>
