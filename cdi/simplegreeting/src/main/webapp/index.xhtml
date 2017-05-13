@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="./template.xhtml">
+
+        <ui:define name="title">NunaIT - Saludo simple</ui:define>
+        <ui:define name="head"><h2>Saludo simple</h2></ui:define>
+        <ui:define name="content">
+            <h:form id="greetme">
+                <p><h:outputLabel value="Ingreser su nombre: " for="name"/>
+                    <h:inputText id="name" value="#{printer.name}"/>
+                </p>
+                <p><h:commandButton value="Saluda"
+                                    action="#{printer.createSalutation}"/>
+                </p>
+                <p><h:outputText value="#{printer.salutation}"/></p>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</html>

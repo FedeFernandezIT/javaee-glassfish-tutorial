@@ -126,6 +126,7 @@
     </build>
     <modules>
         <module>web</module>
+        <module>cdi</module>
     </modules>
     <dependencies>
         <dependency>
