@@ -127,6 +127,7 @@
     <modules>
         <module>web</module>
         <module>cdi</module>
+        <module>jaxws</module>
     </modules>
     <dependencies>
         <dependency>
