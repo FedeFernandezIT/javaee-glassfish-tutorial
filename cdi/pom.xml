@@ -15,6 +15,7 @@
     <module>producermethods</module>
     <module>producerfields</module>
     <module>billpayment</module>
+    <module>decorators</module>
   </modules>
   <build>
       <finalName>${project.artifactId}</finalName>
