@@ -11,14 +11,26 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee.api.version>7.0</javaee.api.version>
-        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>   
+        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
+        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.acr.plugin.version>3.0.0</maven.acr.plugin.version>
+        <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>     
         <maven.license.plugin.version>3.0</maven.license.plugin.version>
-        <cargo.plugin.version>1.6.2</cargo.plugin.version>
+        <cargo.plugin.version>1.6.2</cargo.plugin.version>        
         <integration.container.id>glassfish4x</integration.container.id>
         <glassfish.home>${glassfish.home.prefix}/glassfish4</glassfish.home>
         <glassfish.domain.name>domain1</glassfish.domain.name>
     </properties>
+    
+    <scm>
+        <connection>scm:svn:https://svn.java.net/svn/javaeetutorial~svn/tags/javaeetutorial-7.0.0</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/javaeetutorial~svn/tags/javaeetutorial-7.0.0</developerConnection>
+    </scm>
+    <issueManagement>
+        <system>IssueTracker</system>
+        <url>http://java.net/jira/browse/JAVAEETUTORIAL</url>
+    </issueManagement>
 
     <profiles>
         <profile>
@@ -54,6 +66,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven.source.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

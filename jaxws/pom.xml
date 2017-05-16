@@ -25,5 +25,6 @@
     </build>
   <modules>
     <module>helloservice-war</module>
+    <module>hello-appclient</module>
   </modules>
 </project>

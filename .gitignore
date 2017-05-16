@@ -24,3 +24,4 @@
 /cdi/billpayment/target/
 /cdi/decorators/target/
 /jaxws/helloservice-war/target/
+/jaxws/hello-appclient/target/
