@@ -145,6 +145,7 @@
         <module>web</module>
         <module>cdi</module>
         <module>jaxws</module>
+        <module>jaxrs</module>
     </modules>
     <dependencies>
         <dependency>
