@@ -25,3 +25,4 @@
 /cdi/decorators/target/
 /jaxws/helloservice-war/target/
 /jaxws/hello-appclient/target/
+/jaxws/hello-webclient/target/

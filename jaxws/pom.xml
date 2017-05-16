@@ -26,5 +26,6 @@
   <modules>
     <module>helloservice-war</module>
     <module>hello-appclient</module>
+    <module>hello-webclient</module>
   </modules>
 </project>
