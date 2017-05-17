@@ -27,3 +27,4 @@
 /jaxws/hello-appclient/target/
 /jaxws/hello-webclient/target/
 /jaxrs/hello/target/
+/jaxrs/rsvp/target/

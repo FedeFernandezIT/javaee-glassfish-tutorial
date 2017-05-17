@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>NunaIT - RSVP</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h1>Bienvenidos al RSVP de NunaIT</h1>
+        <h:dataTable value="#{statusManager.events}"
+                     var="event"
+                     summary="Tabla de todos los eventos">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nombre del Evento"/>
+                </f:facet>
+                <h:outputText value="#{event.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Lugar"/>
+                </f:facet>
+                <h:outputText value="#{event.location}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Estados"/>
+                </f:facet>
+                <h:form>
+                    <h:commandLink action="#{eventManager.retrieveEventStatus(event)}"
+                               value="Estado del Evento">                    
+                    </h:commandLink>
+                </h:form>                
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+

@@ -22,5 +22,6 @@
     </build>
   <modules>
     <module>hello</module>
+    <module>rsvp</module>
   </modules>
 </project>

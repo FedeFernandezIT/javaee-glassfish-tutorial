@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>NunaIT - Estados del Evento</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h1>Respuestas para <h:outputText value="#{eventManager.currentEvent.name}"/></h1>
+        <h:form>
+            <h:dataTable var="response"
+                         summary="Lista de todas las respuestas del Evento"
+                         value="#{eventManager.retrieveEventResponses()}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nombre"/>
+                    </f:facet>
+                    <h:outputText value="#{response.person.firstName} #{response.person.lastName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estado"/>
+                    </f:facet>
+                    <h:commandLink value="#{response.responseText}"
+                                   action="#{eventManager.viewResponse(response)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <br/>
+        <h:link outcome="index" value="Ir a la página principal."/>
+    </h:body>
+</html>
+
