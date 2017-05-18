@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>NunaIT - JAX-RS Gestión de Cliente</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="customerForm">
+            <h:panelGrid id="customerGrid" columns="3">
+                
+                <h:outputLabel for="customerFirstNameInput" value="Nombre: "/>
+                <h:inputText id="customerFirstNameInput"
+                             value="#{customerManager.customer.firstName}"/>
+                <h:message for="costumerFirstNameInput"/>
+                
+                <h:outputLabel for="customerLastNameInput" value="Apellido: "/>
+                <h:inputText id="customerLastNameInput"
+                             value="#{customerManager.customer.lastName}"/>
+                <h:message for="costumerLastNameInput"/>
+                
+                <h:outputLabel for="customerEmailInput" value="Email: "/>
+                <h:inputText id="customerEmailInput"
+                             value="#{customerManager.customer.email}"/>
+                <h:message for="costumerEmailInput"/>
+                
+                <h:outputLabel for="customerPhoneInput" value="Teléfono: "/>
+                <h:inputText id="customerPhoneInput"
+                             value="#{customerManager.customer.phone}"/>
+                <h:message for="costumerPhoneInput"/>
+                
+                <h:outputLabel for="addressStreetInput" value="Dirección: "/>
+                <h:inputText id="addressStreetInput"
+                             value="#{customerManager.customer.address.street}"/>
+                <h:message for="addressStreetInput"/>
+                
+                <h:outputLabel for="addressCityInput" value="Ciudad: "/>
+                <h:inputText id="addressCityInput"
+                             value="#{customerManager.customer.address.city}"/>
+                <h:message for="addressCityInput"/>
+                
+                <h:outputLabel for="addressStateInput" value="Provincia: "/>
+                <h:inputText id="addressStateInput"
+                             value="#{customerManager.customer.address.province}"/>
+                <h:message for="addressStateInput"/>
+                
+                <h:outputLabel for="addressCountryInput" value="País: "/>
+                <h:inputText id="addressCountryInput"
+                             value="#{customerManager.customer.address.country}"/>
+                <h:message for="addressCountryInput"/>
+                
+                <f:facet name="footer">
+                    <h:panelGroup>
+                        <h:commandButton id="createCustomerButton"
+                                         action="#{customerBean.createCustomer(customerManager.customer)}"
+                                         value="Crear Cliente"/>                            
+                        <h:commandButton id="cancelButton"
+                                         immediate="true"
+                                         action="index"
+                                         value="Cancelar"/>
+                    </h:panelGroup>
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
