@@ -34,3 +34,4 @@
 /ejb/cart/cart-ejb/target/
 /ejb/cart/cart-appclient/target/
 /ejb/cart/cart-ear/target/
+/ejb/counter/target/

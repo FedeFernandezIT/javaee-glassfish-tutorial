@@ -31,5 +31,6 @@
   <modules>
     <module>converter</module>
     <module>cart</module>
+    <module>counter</module>
   </modules>
 </project>
