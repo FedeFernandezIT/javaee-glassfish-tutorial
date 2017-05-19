@@ -30,5 +30,6 @@
     </build>
   <modules>
     <module>converter</module>
+    <module>cart</module>
   </modules>
 </project>

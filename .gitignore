@@ -30,3 +30,7 @@
 /jaxrs/rsvp/target/
 /jaxrs/customer/target/
 /ejb/converter/target/
+/ejb/cart/cart-common/target/
+/ejb/cart/cart-ejb/target/
+/ejb/cart/cart-appclient/target/
+/ejb/cart/cart-ear/target/
