@@ -29,3 +29,4 @@
 /jaxrs/hello/target/
 /jaxrs/rsvp/target/
 /jaxrs/customer/target/
+/ejb/converter/target/
