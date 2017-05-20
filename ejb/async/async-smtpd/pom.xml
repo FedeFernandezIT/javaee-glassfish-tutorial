@@ -3,38 +3,30 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.nunait.glassfish.javaeetutorial</groupId>
-        <artifactId>javaee-tutorial</artifactId>
+        <artifactId>async</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>ejb</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>async-smtpd</artifactId>
+    <packaging>jar</packaging>
     
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <artifactId>maven-war-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven.exec.plugin.version}</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <mainClass>com.nunait.glassfish.javaeetutorial.ejb.async.smtpd.Server</mainClass>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>${maven.ejb.plugin.version}</version>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
                 <configuration>
-                    <ejbVersion>3.2</ejbVersion>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
-        </plugins>    
+        </plugins>            
     </build>
-  <modules>
-    <module>converter</module>
-    <module>cart</module>
-    <module>counter</module>
-    <module>helloservice</module>
-    <module>timersession</module>
-    <module>standalone</module>
-    <module>async</module>
-  </modules>
 </project>

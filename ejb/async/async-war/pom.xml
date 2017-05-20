@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>async</artifactId>
+        <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+    <artifactId>async-war</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+
+    <name>async-war</name>
+    <description>
+        Session bean con método asíncrono.
+    </description>
+    
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>            
+            <plugin>            
+                <artifactId>maven-war-plugin</artifactId>                
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <executable>${glassfish.home}/bin/asadmin${glassfish.executables.suffix}</executable>
+                    <successCodes>
+                        <successCode>0</successCode>
+                        <successCode>1</successCode>
+                    </successCodes>
+                    <arguments>
+                        <argument>create-javamail-resource</argument>
+                        <argument>--mailhost=localhost</argument>
+                        <argument>--mailuser=ffernandez</argument>
+                        <argument>--fromaddress=ffernandez@localhost</argument>
+                        <argument>mail/myStubSession</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
