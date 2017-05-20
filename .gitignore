@@ -35,3 +35,4 @@
 /ejb/cart/cart-appclient/target/
 /ejb/cart/cart-ear/target/
 /ejb/counter/target/
+/ejb/helloservice/target/

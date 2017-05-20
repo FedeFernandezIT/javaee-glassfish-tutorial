@@ -20,7 +20,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maaven-ejb-plugin</artifactId>
+                <artifactId>maven-ejb-plugin</artifactId>
                 <version>${maven.ejb.plugin.version}</version>
                 <configuration>
                     <ejbVersion>3.2</ejbVersion>
@@ -32,5 +32,6 @@
     <module>converter</module>
     <module>cart</module>
     <module>counter</module>
+    <module>helloservice</module>
   </modules>
 </project>
