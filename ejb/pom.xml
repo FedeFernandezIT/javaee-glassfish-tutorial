@@ -33,5 +33,6 @@
     <module>cart</module>
     <module>counter</module>
     <module>helloservice</module>
+    <module>timersession</module>
   </modules>
 </project>
