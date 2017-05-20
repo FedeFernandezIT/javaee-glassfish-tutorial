@@ -41,3 +41,4 @@
 /ejb/standalone/target/
 /ejb/async/async-smtpd/target/
 /ejb/async/async-war/target/
+/ejb/interceptor/target/

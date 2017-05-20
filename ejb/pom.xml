@@ -36,5 +36,6 @@
     <module>timersession</module>
     <module>standalone</module>
     <module>async</module>
+    <module>interceptor</module>
   </modules>
 </project>
