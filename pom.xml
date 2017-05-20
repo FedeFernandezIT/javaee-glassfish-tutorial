@@ -11,6 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee.api.version>7.0</javaee.api.version>
+        <junit.version>4.12</junit.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
         <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
         <maven.acr.plugin.version>3.0.0</maven.acr.plugin.version>
@@ -23,6 +24,7 @@
         <integration.container.id>glassfish4x</integration.container.id>
         <glassfish.home>${glassfish.home.prefix}/glassfish4</glassfish.home>
         <glassfish.domain.name>domain1</glassfish.domain.name>
+        <glassfish.embedded.version>4.1.2</glassfish.embedded.version>
     </properties>
     
     <scm>

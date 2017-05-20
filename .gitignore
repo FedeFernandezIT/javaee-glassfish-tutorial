@@ -37,3 +37,5 @@
 /ejb/counter/target/
 /ejb/helloservice/target/
 /ejb/timersession/target/
+/ejb/standalone/nbproject/
+/ejb/standalone/target/

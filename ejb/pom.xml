@@ -34,5 +34,6 @@
     <module>counter</module>
     <module>helloservice</module>
     <module>timersession</module>
+    <module>standalone</module>
   </modules>
 </project>
