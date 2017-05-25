@@ -35,7 +35,7 @@
         <system>IssueTracker</system>
         <url>http://java.net/jira/browse/JAVAEETUTORIAL</url>
     </issueManagement>
-
+        
     <profiles>
         <profile>
             <id>windows</id>
@@ -122,6 +122,7 @@
                         <home>${glassfish.home}/glassfish/domains</home>
                         <properties>
                             <cargo.glassfish.domain.name>${glassfish.domain.name}</cargo.glassfish.domain.name>
+                            <cargo.remote.password />
                         </properties>
                     </configuration>
                 </configuration>
@@ -151,6 +152,7 @@
         <module>jaxws</module>
         <module>jaxrs</module>
         <module>ejb</module>
+        <module>persistence</module>
     </modules>
     <dependencies>
         <dependency>

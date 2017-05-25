@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./lineItem-template.xhtml">
+
+        <ui:define name="title">Artículos de línea para el Pedido #{orderManager.currentOrder}</ui:define>
+
+        <ui:define name="body">
+            <h:form>
+                <h:dataTable summary="Tabla de artículos línea" var="lineItem" value="#{orderManager.lineItems}"
+                             rules="all" cellpadding="5">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Artículo ID"/>
+                        </f:facet>
+                        <h:outputText value="#{lineItem.itemId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cantidad"/>
+                        </f:facet>
+                        <h:outputText value="#{lineItem.quantity}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Vendedor Pieza Número"/>
+                        </f:facet>
+                        <h:outputText value="#{lineItem.vendorPart.vendorPartNumber}"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                
+                <h:dataTable id="orderPartsTable" summary="Tabla de piezas"
+                             var="part" value="#{orderManager.newOrderParts}"
+                             rules="all" cellpadding="5">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Pieza Número"/>
+                        </f:facet>
+                        <h:outputText value="#{part.partNumber}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Lote"/>
+                        </f:facet>
+                        <h:outputText value="#{part.revision}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Vendedor Pieza Número"/>
+                        </f:facet>
+                        <h:outputText value="#{part.vendorPart.vendorPartNumber}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Agregar al Pedido"/>
+                        </f:facet>
+                        <h:commandButton value="Agregar" action="#{orderManager.addLineItem}">
+                            <f:setPropertyActionListener target="#{orderManager.selectedPartNumber}"
+                                                         value="#{part.partNumber}"/>
+                            <f:setPropertyActionListener target="#{orderManager.selectedPartRevision}"
+                                                         value="#{part.revision}"/>
+                            <f:setPropertyActionListener target="#{orderManager.selectedVendorPartNumber}"
+                                                         value="#{part.vendorPart.vendorPartNumber}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                
+                <h:commandButton value="Ir a Pedidos" action="order"/>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</html>
