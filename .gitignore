@@ -43,3 +43,7 @@
 /ejb/async/async-war/target/
 /ejb/interceptor/target/
 /persistence/order/target/
+/persistence/roster/roster-common/target/
+/persistence/roster/roster-ejb/target/
+/persistence/roster/roster-ear/target/
+/persistence/roster/roster-appclient/target/

@@ -31,5 +31,6 @@
     </build>
   <modules>
     <module>order</module>
+    <module>roster</module>
   </modules>
 </project>
