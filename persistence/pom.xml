@@ -32,5 +32,6 @@
   <modules>
     <module>order</module>
     <module>roster</module>
+    <module>address-book</module>
   </modules>
 </project>

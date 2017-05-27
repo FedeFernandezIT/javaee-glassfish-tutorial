@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javaee.api.version>7.0</javaee.api.version>
         <junit.version>4.12</junit.version>
-        <eclipselink.version>2.5.2</eclipselink.version>
+        <eclipselink.version>2.6.4</eclipselink.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
         <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
         <maven.acr.plugin.version>3.0.0</maven.acr.plugin.version>
