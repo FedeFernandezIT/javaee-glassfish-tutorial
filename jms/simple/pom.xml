@@ -11,5 +11,6 @@
     <name>simple</name>
   <modules>
     <module>producer</module>
+    <module>synchconsumer</module>
   </modules>
 </project>

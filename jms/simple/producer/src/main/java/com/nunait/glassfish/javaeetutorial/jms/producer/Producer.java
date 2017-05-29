@@ -74,6 +74,8 @@ public class Producer {
         /*
          * Dentro de un bloque try-with-resources, creamos un JMSContex.
          * Crea un Producer y un Message.
+         * Envía message a Destination.
+         * Maneja errores.
          */
         try(JMSContext context = connectionFactory.createContext();) {
             int count = 0;

@@ -49,3 +49,4 @@
 /persistence/roster/roster-appclient/target/
 /persistence/address-book/target/
 /jms/simple/producer/target/
+/jms/simple/synchconsumer/target/
