@@ -48,3 +48,4 @@
 /persistence/roster/roster-ear/target/
 /persistence/roster/roster-appclient/target/
 /persistence/address-book/target/
+/jms/simple/producer/target/

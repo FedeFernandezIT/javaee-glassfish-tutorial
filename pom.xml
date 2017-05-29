@@ -154,6 +154,7 @@
         <module>jaxrs</module>
         <module>ejb</module>
         <module>persistence</module>
+        <module>jms</module>
     </modules>
     <dependencies>
         <dependency>
