@@ -53,3 +53,5 @@
 /jms/simple/asynchconsumer/target/
 /jms/simple/messagebrowser/target/
 /jms/simple/clientackconsumer/target/
+/jms/durablesubscriptionexample/durableconsumer/target/
+/jms/durablesubscriptionexample/unsubscriber/target/

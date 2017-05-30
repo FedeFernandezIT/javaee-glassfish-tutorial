@@ -3,17 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.nunait.glassfish.javaeetutorial</groupId>
-        <artifactId>javaee-tutorial</artifactId>
+        <artifactId>jms</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>jms</artifactId>
+    <artifactId>durablesubscriptionexample</artifactId>
     <packaging>pom</packaging>
-    
-    <build>
-        <finalName>${project.artifactId}</finalName>
-    </build>
-    <modules>
-        <module>simple</module>
-        <module>durablesubscriptionexample</module>
-    </modules>
+  <modules>
+    <module>durableconsumer</module>
+    <module>unsubscriber</module>
+  </modules>
 </project>
