@@ -14,5 +14,6 @@
     <module>synchconsumer</module>
     <module>asynchconsumer</module>
     <module>messagebrowser</module>
+    <module>clientackconsumer</module>
   </modules>
 </project>

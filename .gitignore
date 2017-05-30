@@ -52,3 +52,4 @@
 /jms/simple/synchconsumer/target/
 /jms/simple/asynchconsumer/target/
 /jms/simple/messagebrowser/target/
+/jms/simple/clientackconsumer/target/
