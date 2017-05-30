@@ -1,5 +1,13 @@
-package com.nunait.glassfish.javaeetutorial.jms.synchconsumer;
-        
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.nunait.glassfish.javaeetutorial.jms.asynchconsumer;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -7,26 +15,21 @@ import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jms.JMSRuntimeException;
-import javax.jms.Message;
 import javax.jms.Queue;
-import javax.jms.TextMessage;
 import javax.jms.Topic;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /** 
- * La clase SynchConsumer consiste sólo de un método main, el cual recupera uno
- * o más mensajes desde una queue o un topic usando entrega sincronizada de 
- * mensajes.
+ * La clase AsynchConsumer consiste sólo del método main, el cual recibe uno o
+ * más mensajes de la queue o topic usando entrega asincrónica de mensajes. Esta
+ * usa el listener TextListener. Ejecute este programa junto con Producer.
+ * Especifique "queue" o "topic" en la línea de comandos cuando ejecute este
+ * programa. Para finalizar la ejecución del mismo, ingreser 'Q' o 'q' en la
+ * línea de comandos.
  * 
  * @author Federico Fernandez | fede.fernandez.it@gmail.com
- * @created 29 de mayo de 2017 19:01:16 ART
+ * @created 29 de mayo de 2017 20:39:31 ART
  */
-public class SynchConsumer {
+public class AsynchConsumer {
     
     @Resource(lookup = "java:comp/DefaultJMSConnectionFactory")
     private static ConnectionFactory connectionFactory;
@@ -46,6 +49,9 @@ public class SynchConsumer {
         String destType;
         Destination dest = null;
         JMSConsumer consumer;
+        TextListener listener;
+        InputStreamReader inputStreamReader;
+        char answer = '\0';
         
         if (args.length != 1) {
             System.err.println("El programa debe un argumento: <tipo_destino>");
@@ -70,35 +76,29 @@ public class SynchConsumer {
             System.err.println("Error al establecer destino: " + e.toString());
             System.exit(1);
         }
-                
+        
         /*
          * Dentro de un bloque try-with-resources, creamos un JMSContex.
          * Crea un consumidor.
-         * Recibe todos los mensajes de texto desde el destino hasta que un 
-         * mensdaje sin texto es recibido indicando el final del flujo de
-         * mensajes.
+         * Registra un listener (TextListener).
+         * Recibe mensaje de texto desde el destino.
+         * Cuando todos los mensajes son recibidos, presione Q para salir.
          */
-        try (JMSContext context = connectionFactory.createContext();) {
+        try (JMSContext context = connectionFactory.createContext()) {
             consumer = context.createConsumer(dest);
-            int count = 0;
+            listener = new TextListener();
+            consumer.setMessageListener(listener);
+            System.out.println("Para finalizar el programa, ingrese 'Q' o 'q', y presione <ENTER>");
+            inputStreamReader = new InputStreamReader(System.in);
             
-            while (true) {                
-                Message m = consumer.receive(1000);
-                
-                if (m != null) {
-                    if (m instanceof TextMessage) {
-                        // Comentar las dos siguientes líneas al recibir
-                        // grandes volúmenes de mensajes.
-                        System.out.println(
-                                "Recibiendo mensaje: " + m.getBody(String.class));
-                        count += 1;
-                    } else {
-                        break;
-                    }
+            while (!(answer == 'Q' || answer == 'q')) {
+                try {
+                    answer = (char) inputStreamReader.read();
+                } catch (IOException e) {
+                    System.err.println("Una excepción I/O ha ocurrido: " + e.toString());
                 }
             }
-            System.out.println("Mensajes recibidos: " + count);
-        } catch (JMSException e) {
+        } catch (JMSRuntimeException e) {
             System.err.println("Una excepción ha ocurrido: " + e.toString());
             System.exit(1);
         }

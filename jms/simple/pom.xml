@@ -12,5 +12,6 @@
   <modules>
     <module>producer</module>
     <module>synchconsumer</module>
+    <module>asynchconsumer</module>
   </modules>
 </project>

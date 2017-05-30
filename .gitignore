@@ -50,3 +50,4 @@
 /persistence/address-book/target/
 /jms/simple/producer/target/
 /jms/simple/synchconsumer/target/
+/jms/simple/asynchconsumer/target/
