@@ -73,10 +73,8 @@ public class SynchConsumer {
                 
         /*
          * Dentro de un bloque try-with-resources, creamos un JMSContex.
-         * Crea un consumidor.
-         * Recibe todos los mensajes de texto desde el destino hasta que un 
-         * mensdaje sin texto es recibido indicando el final del flujo de
-         * mensajes.
+         * Crea un navagdor para queue (QueueBrowser).
+         * Chequeamos los mensajes que contiene.         
          */
         try (JMSContext context = connectionFactory.createContext();) {
             consumer = context.createConsumer(dest);

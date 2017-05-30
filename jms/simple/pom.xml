@@ -13,5 +13,6 @@
     <module>producer</module>
     <module>synchconsumer</module>
     <module>asynchconsumer</module>
+    <module>messagebrowser</module>
   </modules>
 </project>

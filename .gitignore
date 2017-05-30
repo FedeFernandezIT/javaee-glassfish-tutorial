@@ -51,3 +51,4 @@
 /jms/simple/producer/target/
 /jms/simple/synchconsumer/target/
 /jms/simple/asynchconsumer/target/
+/jms/simple/messagebrowser/target/
