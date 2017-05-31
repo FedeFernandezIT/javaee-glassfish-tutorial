@@ -55,3 +55,6 @@
 /jms/simple/clientackconsumer/target/
 /jms/durablesubscriptionexample/durableconsumer/target/
 /jms/durablesubscriptionexample/unsubscriber/target/
+/jms/transactedexample/genericsupplier/target/
+/jms/transactedexample/retailer/target/
+/jms/transactedexample/vendor/target/
