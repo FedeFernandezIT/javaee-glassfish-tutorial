@@ -58,3 +58,5 @@
 /jms/transactedexample/genericsupplier/target/
 /jms/transactedexample/retailer/target/
 /jms/transactedexample/vendor/target/
+/jms/shared/sharedconsumer/target/
+/jms/shared/shareddurableconsumer/target/
