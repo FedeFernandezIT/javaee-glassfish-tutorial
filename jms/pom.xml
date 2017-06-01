@@ -17,5 +17,6 @@
         <module>durablesubscriptionexample</module>
         <module>transactedexample</module>
         <module>shared</module>
-    </modules>
+    <module>websimplemessage</module>
+  </modules>
 </project>

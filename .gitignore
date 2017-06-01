@@ -60,3 +60,4 @@
 /jms/transactedexample/vendor/target/
 /jms/shared/sharedconsumer/target/
 /jms/shared/shareddurableconsumer/target/
+/jms/websimplemessage/target/
