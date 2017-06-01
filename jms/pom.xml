@@ -18,5 +18,6 @@
         <module>transactedexample</module>
         <module>shared</module>
     <module>websimplemessage</module>
+    <module>simplemessage</module>
   </modules>
 </project>

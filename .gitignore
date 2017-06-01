@@ -61,3 +61,6 @@
 /jms/shared/sharedconsumer/target/
 /jms/shared/shareddurableconsumer/target/
 /jms/websimplemessage/target/
+/jms/simplemessage/simplemessage-ejb/target/
+/jms/simplemessage/simplemessage-appclient/target/
+/jms/simplemessage/simplemessage-ear/target/
