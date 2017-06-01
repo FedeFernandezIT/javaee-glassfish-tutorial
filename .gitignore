@@ -64,3 +64,6 @@
 /jms/simplemessage/simplemessage-ejb/target/
 /jms/simplemessage/simplemessage-appclient/target/
 /jms/simplemessage/simplemessage-ear/target/
+/jms/clientsessionmdb/clientsessionmdb-ejb/target/
+/jms/clientsessionmdb/clientsessionmdb/target/
+/jms/clientsessionmdb/clientsessionmdb-ear/target/

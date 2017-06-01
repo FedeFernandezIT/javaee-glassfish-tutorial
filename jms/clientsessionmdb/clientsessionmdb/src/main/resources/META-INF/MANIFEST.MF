@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.nunait.glassfish.javaeetutorial.jms.clientsessionmdb.appclient.MyAppClient
+Class-Path: clientsessionmdb-ejb.jar
+
