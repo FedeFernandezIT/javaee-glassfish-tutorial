@@ -20,5 +20,6 @@
     <module>websimplemessage</module>
     <module>simplemessage</module>
     <module>clientsessionmdb</module>
-  </modules>
+        <module>clientmdbentity</module>
+    </modules>
 </project>

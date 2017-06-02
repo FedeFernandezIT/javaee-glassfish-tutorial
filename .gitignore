@@ -67,3 +67,6 @@
 /jms/clientsessionmdb/clientsessionmdb-ejb/target/
 /jms/clientsessionmdb/clientsessionmdb/target/
 /jms/clientsessionmdb/clientsessionmdb-ear/target/
+/jms/clientmdbentity/clientmdbentity-ejb/target/
+/jms/clientmdbentity/clientmdbentity-appclient/target/
+/jms/clientmdbentity/clientmdbentity-ear/target/
