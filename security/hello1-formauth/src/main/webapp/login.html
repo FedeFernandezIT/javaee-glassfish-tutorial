@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario de Inicio de sesión</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Hola, por favor inicie sesión</h2>
+        <form method="POST" action="j_security_check">
+            <table role="presentation">
+                <tr>
+                    <td>Ingrese su nombre de usuario: </td>
+                    <td><input type="text" name="j_username" size="20"/></td>
+                </tr>
+                <tr>
+                    <td>Ingrese su contraseña: </td>
+                    <td><input type="password" name="j_password" size="20"/></td>
+                </tr>
+            </table>
+            <p></p>
+            <input type="submit" value="Iniciar"/>
+            &nbsp;
+            <input type="reset" value="Restablecer"/>            
+        </form>        
+    </body>
+</html>

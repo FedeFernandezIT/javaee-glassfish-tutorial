@@ -155,6 +155,7 @@
         <module>ejb</module>
         <module>persistence</module>
         <module>jms</module>
+        <module>security</module>
     </modules>
     <dependencies>
         <dependency>

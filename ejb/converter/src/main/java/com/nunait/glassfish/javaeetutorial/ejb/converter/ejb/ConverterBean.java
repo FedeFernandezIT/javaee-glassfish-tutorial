@@ -19,12 +19,12 @@ import javax.ejb.Stateless;
 public class ConverterBean {
     private final BigDecimal yenRate = new BigDecimal("111.47");
     private final BigDecimal euroRate = new BigDecimal("0.008");
-    
+        
     public BigDecimal dollarToYen(BigDecimal dollars) {
         BigDecimal result = dollars.multiply(yenRate);
         return result.setScale(2, BigDecimal.ROUND_UP);
     }
-    
+        
     public BigDecimal yenToEuro(BigDecimal yen) {
         BigDecimal result = yen.multiply(euroRate);
         return result.setScale(2, BigDecimal.ROUND_UP);

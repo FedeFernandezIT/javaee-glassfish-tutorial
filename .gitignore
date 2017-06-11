@@ -70,3 +70,11 @@
 /jms/clientmdbentity/clientmdbentity-ejb/target/
 /jms/clientmdbentity/clientmdbentity-appclient/target/
 /jms/clientmdbentity/clientmdbentity-ear/target/
+/security/hello2-basicauth/target/
+/security/hello1-formauth/target/
+/security/cart-secure/cart-secure-common/target/
+/security/cart-secure/cart-secure-ejb/target/
+/security/cart-secure/cart-secure-appclient/target/
+/security/cart-secure/cart-secure-ear/target/
+/security/converter-secure/target/
+/config/
