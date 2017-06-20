@@ -19,6 +19,8 @@
         <maven.ear.plugin.version>2.10.1</maven.ear.plugin.version>
         <maven.ejb.plugin.version>2.5.1</maven.ejb.plugin.version>    
         <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
+        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+        <maven.rar.plugin.version>2.3</maven.rar.plugin.version>
         <maven.war.plugin.version>3.0.0</maven.war.plugin.version>     
         <maven.license.plugin.version>3.0</maven.license.plugin.version>
         <cargo.plugin.version>1.6.2</cargo.plugin.version>        
@@ -156,6 +158,7 @@
         <module>persistence</module>
         <module>jms</module>
         <module>security</module>
+        <module>connectors</module>
     </modules>
     <dependencies>
         <dependency>

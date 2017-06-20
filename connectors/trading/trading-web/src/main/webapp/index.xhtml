@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>NunaIT - Outbound Connector Test Web Application</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h1>Outbound Connector Test Web Application</h1>
+        <h3>Conectarse al EIS</h3>
+        <p>Use esta página para conectarse al EIS usando el Resource Adapter 
+           <code>trading-rar</code>.</p>
+        <h:form>
+            Host: <h:inputText value="#{resourceAccessBean.host}" size="15" readonly="true"/>
+            Port: <h:inputText value="#{resourceAccessBean.port}" size="6" readonly="true"/>
+            <h:commandButton value="Conectar" action="#{resourceAccessBean.connect()}"/>
+        </h:form>
+    </h:body>
+</html>
+

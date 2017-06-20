@@ -78,3 +78,12 @@
 /security/cart-secure/cart-secure-ear/target/
 /security/converter-secure/target/
 /config/
+/connectors/trading/trading-eis/target/
+/connectors/trading/trading-rar/target/
+/connectors/trading/trading-web/target/
+/connectors/trading/trading-ear/target/
+/connectors/traffic/traffic-rar/target/
+/connectors/traffic/traffic-eis/target/
+/connectors/traffic/traffic-ejb/target/
+/connectors/traffic/traffic-web/target/
+/connectors/traffic/traffic-ear/target/

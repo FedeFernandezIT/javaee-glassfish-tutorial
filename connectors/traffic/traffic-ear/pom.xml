@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+    <artifactId>traffic</artifactId>
+    <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+    <version>1.0.0</version>
+  </parent>
+
+    <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+    <artifactId>traffic-ear</artifactId>
+    <version>1.0.0</version>
+    <packaging>ear</packaging>
+
+    <name>traffic-ear</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${maven.ear.plugin.version}</version>
+                <configuration>
+                    <finalName>traffic-ear</finalName>                    
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+                            <artifactId>traffic-ejb</artifactId>
+                            <bundleFileName>traffic-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <rarModule>
+                            <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+                            <artifactId>traffic-rar</artifactId>
+                            <bundleFileName>traffic-rar.rar</bundleFileName>
+                        </rarModule>
+                        <webModule>
+                            <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+                            <artifactId>traffic-web</artifactId>
+                            <bundleFileName>traffic-web.war</bundleFileName>
+                        </webModule>
+                    </modules>                    
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+            <artifactId>traffic-ejb</artifactId>
+            <version>1.0.0</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.nunait.glassfish.javaeetutorial</groupId>
+            <artifactId>traffic-web</artifactId>
+            <version>1.0.0</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>traffic-rar</artifactId>
+            <version>${project.version}</version>
+            <type>rar</type>
+        </dependency>
+    </dependencies>
+</project>

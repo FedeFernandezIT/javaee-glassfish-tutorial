@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>NunaIT - Outbound Connector Test Web Application</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>
+    <h:body>
+        <h1>Outbound Connector Test Web Application</h1>
+        <h3>Interactuar con el EIS</h3>
+        <p>Use esta página para interactuar con el EIS, enviando comercializaciones.</p>
+        <h:form>
+            Buy/Sell:
+            <h:selectOneMenu value="#{resourceAccessBean.order.orderType}">
+                <f:selectItems value="#{resourceAccessBean.orderTypeList}"></f:selectItems>
+            </h:selectOneMenu>
+            N. acciones: <h:inputText value="#{resourceAccessBean.order.NShares}" size="5"/>
+            <!--Ticker: <h:inputText value="#{resourceAccessBean.order.ticker}" size="5"/>-->
+            Ticker: 
+            <h:selectOneMenu>
+                <f:selectItems value="#{resourceAccessBean.tickerList}"></f:selectItems>
+            </h:selectOneMenu>
+            Clase:
+            <h:selectOneMenu>
+                <f:selectItems value="#{resourceAccessBean.orderClassList}"></f:selectItems>
+            </h:selectOneMenu>
+            <h:commandButton value="Enviar" action="#{resourceAccessBean.submitTrade()}"/>
+            <br/><br/>
+            <h:inputTextarea value="#{resourceAccessBean.infoBox}" cols="80" rows="10" readonly="true"/>
+            <br/><br/>
+            <h:commandButton value="Desconectar" action="#{resourceAccessBean.disconnect()}"/>
+        </h:form>
+    </h:body>
+</html>
+
