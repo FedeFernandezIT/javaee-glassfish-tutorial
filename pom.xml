@@ -159,6 +159,7 @@
         <module>jms</module>
         <module>security</module>
         <module>connectors</module>
+        <module>batch</module>
     </modules>
     <dependencies>
         <dependency>

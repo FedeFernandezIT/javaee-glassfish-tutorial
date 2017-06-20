@@ -87,3 +87,4 @@
 /connectors/traffic/traffic-ejb/target/
 /connectors/traffic/traffic-web/target/
 /connectors/traffic/traffic-ear/target/
+/batch/webserverlog/target/
